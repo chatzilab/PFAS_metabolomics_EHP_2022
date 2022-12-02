@@ -1,0 +1,60 @@
+---
+title: "1_MWAS Results"
+author: "Jesse Goodrich"
+date: "4/9/2021"
+output: html_document
+---
+
+
+```{r setup_select, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+source(here::here("0_project_setup", "!libraries.R"))
+source(here::here("0_project_setup", "!directories.R"))
+source(here::here("0_project_setup", "!set_exposure_outcome_vars.R"))
+source(here::here("0_project_setup", "!load_data.R"))
+source(here::here("0_project_setup", "!functions.R"))
+
+# Set ggplot theme:
+theme_set(theme_cowplot())
+
+
+```
+
+# Descriptive Statistics  
+Code for descriptive statistics are provided in scripts beginning with "0_".   
+
+## Table 1: Participant Characteristics  
+```{r}
+source(here::here("0_1_Table 1 participant characteristics.R"))
+kableExtra::kable(table1_w)
+```
+
+## Figure S1: Correlation matrix including histograms and scatter plot of all PFAS. 
+```{r}
+source(here::here("0_2 PFAS correlation matrix.R"))
+fig_s1
+```
+
+## Run MWAS
+```{r}
+## Takes ~20 minutes, dont need to re-run
+# source("1_1_MWAS.R")
+```
+
+
+
+## Figure 1. 
+```{r}
+source(here::here("3_results_figures",
+                  "3_0 Fig 1 Mummichog Mixtures Result Figures.R"))
+fig_1_mum_bubble
+```
+
+
+## Figure 2. 
+```{r}
+source(here::here("3_results_figures",
+                  "3_1 Fig 2 upset plots.R"))
+upsetfig_final
+```
